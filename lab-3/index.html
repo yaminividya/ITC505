@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITC 505 WT Lab 3 - Serving Fonts Example</title>
+<style>
+    /* Apply fonts from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Nosifer&family=ZCOOL+KuaiLe&family=Shojumaru&family=Architects+Daughter&family=Nosifer&display=swap');
+
+    /* Apply the font to the elements */
+    .container {
+        background-color: beige;
+        margin: 20px 10px;
+    }
+
+    #heading {
+        font-family: 'Nosifer', cursive;
+        font-size: 2.1rem;
+        margin-bottom: 20px;
+    }
+
+    .sub_heading {
+        font-family: 'Shojumaru', cursive;
+        font-size: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .content {
+        font-family: 'ZCOOL KuaiLe', cursive;
+        font-size: 1.0rem;
+        line-height: 1.6;
+    }
+    .sub-content {
+        font-family: 'Architects Daughter';
+        font-size: 1.0rem;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="heading">ITC 505 WEB TECHNOLOGY LAB 3 - SERVING FONTS</h1>
+        <ul>
+            <li><b class="sub_heading">HTML Structure:</b></li>
+            <ul class="content">
+                <li>
+                    The document starts with the usual !DOCTYPE html declaration, followed by the opening html tag with
+                    the lang attribute set to "en".
+                </li>
+                <li>
+                    Inside the head section, meta tags for character set and viewport are defined. Additionally, the title of the webpage is set to "ITC 505 WT Lab 3 - Serving Fonts Example".
+                </li>
+            </ul>
+            <li><b class="sub_heading">CSS Styling:</b></li>
+            <ul class="content">
+                <li>
+                    The CSS block starts after the closing head tag. It first imports multiple fonts from Google Fonts using the @import rule. The fonts imported are "Nosifer", "ZCOOL KuaiLe", "Shojumaru", and "Architects Daughter".
+                </li>
+                <li>
+                    CSS rules are defined to apply these fonts to specific elements:
+                    <ul class="sub-content">
+                        <li>
+                            The <b>container</b> class sets margins to create spacing around the content.
+                        </li>
+                        <li>
+                            The <b>heading</b> ID styles the main heading with the "Nosifer" font, cursive style, a font size of 2.1rem, and a margin bottom of 20px.
+                        </li>
+                        <li>
+                            The <b>sub_heading</b> class styles subheadings with the "Shojumaru" font, cursive style, and a font size of 1.5rem with increased line height.
+                        </li>
+                        <li>
+                            The <b>content</b> class styles regular content with the "ZCOOL KuaiLe" font, cursive style, a font size of 1.0rem, and a line height of 1.6.
+                        </li>
+                        <li>
+                            The <b>sub-content</b> class styles additional content with the "Architects Daughter" font and a font size of 1.0rem.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </ul>
+        <ul>
+            <li><b class="sub_heading">Content:</b></li>
+            <ul class="content">
+                <li>
+                    Inside the body section, there's a div element with the class "container". This is where the main content resides.
+                </li>
+                <li>
+                    The content is organized into an unordered list (ul) with list items (li). Each list item contains an explanation of different aspects of the code, such as HTML structure and CSS styling. Sub-lists are used for detailed explanations under each main point.
+                </li>
+            </ul>
+        </ul>
+        <ul>
+            <li><b class="sub_heading">Footer:</b></li>
+            <ul class="content">
+                <li>
+                    At the end of the body section, there's a footer element. Inside it, there's a paragraph displaying the last modified date of the document. This is achieved using JavaScript, where the script retrieves the last modified date and updates the content of the span element with the id "lastModified".
+                </li>
+            </ul>
+        </ul>
+    </div>
+
+    <footer>
+        <p>Last updated:
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
+</html>
