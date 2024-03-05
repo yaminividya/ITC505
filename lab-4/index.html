@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaminividya Goli-Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #2980b9, #6ab04c);
+            color: #333;
+        }
+
+        article {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 20px;
+            font-family: 'Lobster', serif;
+            text-transform: uppercase;
+        }
+
+        h2.summary {
+            color: #9b59b6;
+            border-bottom: 2px solid #9b59b6;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 24px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .professional_summary {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: maroon;
+        }
+
+        h3.skills {
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .skills_styles {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: darkcyan;
+        }
+
+        h4.work {
+            font-style: italic;
+            color: #3498db;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .accolite {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: purple;
+        }
+
+        .baci {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: red;
+        }
+
+        .tcs {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: blue;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .skill-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .skill-table th,
+        .skill-table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .skill-table th {
+            background-color: #9b59b6;
+            color: #fff;
+        }
+
+        .skill-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .education {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: violet;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            list-style: none;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        li:before {
+            content: "\2022";
+            color: #e74c3c;
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            top: 6px;
+        }
+
+        b {
+            color: black;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 1000;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            article {
+                padding: 10px;
+            }
+
+            ul {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <div>
+            <h1 style="font-family: 'Merriweather', serif;">Yaminividya Goli</h1>
+            <p style="text-align: center; font-weight: 600; color: green"><i>yaminividya18@gmail.com / +19282212011 /
+                    Flagstaff, USA</i></p>
+            <hr />
+        </div>
+        <div>
+            <h2 class="summary" style="font-family: 'Roboto', sans-serif;">Professional Summary</h2>
+            <p class="professional_summary">Experienced Front End Developer with 5.5 years of expertise in creating
+                dynamic web applications.
+                Proficient in HTML, CSS, JavaScript, ReactJS. Skilled in translating design mockups into
+                functional interfaces, ensuring cross-browser compatibility and optimal performance. Collaborative team
+                player committed to delivering high-quality, user-friendly solutions. Passionate about staying updated
+                with the latest web technologies.</p>
+        </div>
+        <div>
+            <h2 class="skills" style="font-family: 'Montserrat', sans-serif;">Skills</h2>
+            <table class="skill-table">
+                <tr>
+                    <th>Front End</th>
+                    <th>Back End</th>
+                    <th>Tools & Technologies</th>
+                </tr>
+                <tr class="skills_styles">
+                    <td>React JS, React Native</td>
+                    <td>Java, SQL</td>
+                    <td>Selenium, Appium, JIRA</td>
+                </tr>
+                <tr class="skills_styles">
+                    <td>HTML, CSS</td>
+                    <td></td>
+                    <td>GIT, Visual Studio Code, Eclipse</td>
+                </tr>
+                <tr class="skills_styles">
+                    <td></td>
+                    <td></td>
+                    <td>Data Studio, Bitbucket, HP ALM</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h2 class="work" style="font-family: 'Arial', sans-serif;">Work Experience</h2>
+            <div>
+                <h3>Senior Software Engineer at Accolite Digital India Pvt Ltd</h3>
+                <ul class="accolite">
+                    <li>Working as a <b>Front End Developer</b> in creating Mobile Applications using React Native and
+                        Web
+                        Applications using React JS.</li>
+                    <li>Worked on website and mobile development projects from initial development through completion,
+                        optimizing all cross-browser and multi-platform compatibility.</li>
+                    <li>Enhanced user experience and accomplish webpage objectives by creating site structure,
+                        navigation, page optimization, and integration.</li>
+                    <li>Implemented enhancements that improved web functionality and responsiveness.</li>
+                    <li>Coordinating and guiding the team throughout the development process.</li>
+                    <li>Expand features, refine code, and improve processes, producing smoother operations and enhancing
+                        user engagement.</li>
+                    <li>Delivered a <b>successful Mobile Application Project</b> to the client without any issues/bugs.
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>Quality Specialist I A at Bank of America Continuum India Pvt Ltd</h3>
+                <ul class="baci">
+                    <li>Worked as a <b>Front End Developer</b> in creating the Web Applications using React JS.</li>
+                    <li>Managed the team through sprint activities, coordinated and guided the team with proper KT's and
+                        application walk-through.</li>
+                    <li>Understood the requirements from clients for developments and enhancements.</li>
+                    <li>Used high-level attention to detail, identifying issues with products before reaching customer.
+                    </li>
+                    <li>Participated and contributed in multiple Demos with LOB and multiple PPV Releases.</li>
+                    <li>Involved in daily stand-up meetings, requirement reviews, sprint planning, walkthrough and
+                        retrospective meetings.</li>
+                    <li> coordinated and helped the DB team in SQL Queries.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Systems Engineer at TATA Consultancy Services</h3>
+                <ul class="tcs">
+                    <li>Joined as a fresher in TCS and undergone training for 3 months in <b>Python, SQL, Unix, Java and
+                            Javascript.</b></li>
+                    <li>Worked on various Web projects during <b>Initial Learning Program (ILP).</b></li>
+                    <li>Worked as a Front End Developer in Bank of America Project and contributed in Requirements
+                        Analysis & Gathering, Design, Implementation/Coding, Testing and Deployment.</li>
+                    <li>Also, worked as a QA Tester in performing System Integration Testing, Database Testing,
+                        Functional Testing, Regression, Smoke and Ad-hoc Testing's.</li>
+                    <li>Prepared Test Strategy, Test Plans, Estimations, Test Designs, Execution, bug tracking and E2E
+                        test management.</li>
+                    <li>Actively involved in daily stand-up meetings, scrum calls, requirement reviews, sprint plannings
+                        and retrospective meetings.</li>
+                    <li>Participated and contributed in multiple PPV releases.</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h2 class="summary">Education</h2>
+            <div>
+                <h4><i>Bachelor of Technology (B.TECH)</i></h4>
+                <ul class="education">
+                    <li>Computer Science & Engineering</li>
+                    <li>R.V.R & J.C College of Engineering</li>
+                    <li>Secured <b>9.73 CGPA</b> on a scale of 10</li>
+                    <li>2014-2018</li>
+                </ul>
+            </div>
+            <div>
+                <h4><i>Intermediate</i></h4>
+                <ul class="education">
+                    <li>MPC</li>
+                    <li>Narayana Junior College</li>
+                    <li>Secured <b>96%</b> out of 100%</li>
+                    <li>2012-2014</li>
+                </ul>
+            </div>
+            <div>
+                <h4><i>SSC</i></h4>
+                <ul class="education">
+                    <li>Ravindra Bharathi School</li>
+                    <li>Secured <b>9.3 GPA</b> on a scale of 10</li>
+                    <li>2011-2012</li>
+                </ul>
+            </div>
+        </div>
+    </article>
+    <article>
+        <h2>Addendum</h2>
+        <div>
+            <h3 style="color: green">Font Choices:</h3>
+            <ul>
+                <li style="color: violet; font-weight: 800;">Heading Fonts:</li>
+                <ul>
+                    <li><b>Name (h1):</b> I picked "Merriweather" for the big name at the top because it looks fancy and
+                        adds a touch of elegance.</li>
+                    <li><b>Summary (h2):</b> For the summary, I went with "Roboto" because it's clean and modern, making
+                        it easy to read and look professional.</li>
+                    <li><b>Skills (h3):</b> I gave "Montserrat" for skills to keep things consistent and make this
+                        section stand out.</li>
+                    <li><b>Work and Education (h4):</b> Each of these sections has a different font to give them their
+                        own style and make them look unique.</li>
+                </ul>
+                <li><b style="color: violet; font-weight: 800;">Main Text Font:</b> I used "Montserrat" for the main
+                    text because it's simple and easy to read.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: green">Sizes of Headings and Main Text:</h3>
+            <ul>
+                <li>
+                    I made the big name (h1) larger and centered it to make it stand out.
+                </li>
+                <li>The summary (h2) is a bit bigger to catch your eye and show its importance.</li>
+                <li>Skills (h3) are a little bigger too so you notice them easily.</li>
+                <li>The work and education sections (h4) are not too big or small, just right to show they're important
+                    but not the main focus.</li>
+                <li>The main text is a normal size so it's easy to read without being too small or too big.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: green">Color Choices:</h3>
+            <ul>
+                <li><b>Background:</b> I chose colors for the background that blend nicely together to make it look nice
+                    without taking attention away from the words.</li>
+                <li><b>Text Color:</b> I used different colors for headings and sections to make them look interesting
+                    and organized.</li>
+                <li><b>Highlight Color (Skills Table Header):</b> The header of the skills table has a brighter color to
+                    make it stand out.</li>
+                <li><b>Bullet Points:</b> I made the bullet points a different color so they're easy to see and help you
+                    know where each point starts.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: green">Margin and Padding Choices:</h3>
+            <ul>
+                <li>
+                    I added space around the article to keep it away from the edges of the page and make it look nice.
+                </li>
+                <li>Headings and paragraphs have some space around them to make them easier to read and separate from
+                    other content.</li>
+                <li>There's a line between sections to help you see where one part ends and the next begins.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: green">HTML Abuse:</h3>
+            <ul>
+                <li>I made sure to use the right heading tags (like h1, h2, etc.) for each section based on how
+                    important they are, not just for how they look.</li>
+            </ul>
+        </div>
+    </article>
+    <footer>
+        <p>Last updated:
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
+
+</html>
