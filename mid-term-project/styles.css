@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+    text-align: center;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.container img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 20px; /* Add margin to separate image from other content */
+}
+
+h1 {
+    font-size: 28px;
+    text-align: center;
+    color: red;
+}
+
+#story {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    /* color: white; */
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
+    /* color: white; */
+}
+
+#choices button {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: orange;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#choices button:hover {
+    background-color: purple;
+}
+
+#image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#level-image {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+#endText {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #ff0000;
+    margin-top: 20px;
+}
+
+#start-screen {
+    display: none;
+}
+
+#start-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: purple;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#start-button:hover {
+    background-color: red;
+}
+
+#restart-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: purple;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#restart-button:hover {
+    background-color: red;
+}
+
+footer {
+    color: black;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}
+
+footer div {
+    max-width: 1100px;
+    margin: 0 auto;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}

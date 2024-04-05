@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haunted House Escape Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="start-screen" class="container">
+        <h1>Welcome to the Haunted House Escape Game</h1>
+        <p>Are you ready to enter the haunted house and find a way to escape?</p>
+        <button id="start-button">Start Game</button>
+        <img src="HomeScreen.jpg" alt="Home Screen Image" />
+    </div>
+    <div id="game-screen" class="container">
+        <h1>Haunted House Escape Game</h1>
+        <div id="story"></div>
+        <div id="choices"></div>
+        <div id="endText"></div>
+        <div id="image-container">
+            <img id="level-image" src="" alt="Level Image">
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <footer>
+        <div>
+            <h3><u>ADDENDUM</u></h3>
+            <div>
+                <h4>Game Design:</h4>
+                <p>I structured the game as a text-based adventure with multiple levels, each presenting the player
+                    with choices that lead to different outcomes. The storyline revolves around escaping a haunted
+                    house, with various spooky scenarios and twists
+                    to keep the player engaged.</p>
+            </div>
+            <div>
+                <h4>HTML Structure:</h4>
+                <p>I organized the HTML file to have separate sections for the start screen, game screen, and footer.
+                    This separation helps maintain clarity and allows for easy manipulation of content through
+                    JavaScript.</p>
+            </div>
+            <div>
+                <h4>CSS Styling:</h4>
+                <p>The CSS file was designed to give the game a dark, eerie aesthetic, fitting the theme of a haunted
+                    house. I utilized responsive design principles to ensure the game looks good on different screen
+                    sizes.</p>
+            </div>
+            <div>
+                <h4>JavaScript Functionality:</h4>
+                <p>JavaScript was used to handle the game logic, including rendering levels, processing player choices,
+                    and managing game state.</p>
+                <p>I implemented a dynamic rendering system to display text, choices, and images based on the current
+                    game level.</p>
+                <p>Endgame scenarios were handled to display appropriate messages (either success or failure) and offer
+                    the option to restart the game.</p>
+            </div>
+            <div>
+                <h4>Challenges and Solutions:</h4>
+                <p>One challenge was managing the complexity of the game's branching storyline. I addressed this by
+                    carefully structuring the level data and using conditional rendering to handle different outcomes.
+                </p>
+                <p>Ensuring smooth transitions between levels and maintaining a coherent narrative flow required
+                    meticulous testing and debugging.</p>
+                <p>Integrating dynamic content such as the last modified date in the footer involved understanding DOM
+                    manipulation and JavaScript's Date object.</p>
+            </div>
+            <div>
+                <h4>Insights Gained:</h4>
+                <p>Developing this game reinforced the importance of clear code organization and separation of concerns,
+                    especially in projects with multiple interconnected components.
+                </p>
+                <p>I gained a deeper understanding of JavaScript event handling, DOM manipulation, and CSS styling
+                    techniques.</p>
+                <p>Testing and iteration were crucial for refining the player experience and identifying and fixing any
+                    bugs or inconsistencies.</p>
+            </div>
+        </div>
+        <p>Last updated:
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
+
+</html>
