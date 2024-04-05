@@ -1,3 +1,10 @@
+header {
+    font-family: Arial, sans-serif;
+    margin: 10px 10px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
