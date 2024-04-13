@@ -31,7 +31,7 @@ server.post('/submit', (req, res) => {
     res.send(`
       <h1>Submission Successful</h1>
       <p>${madLib}</p>
-      <a href="/lab-7/index.html">Go Back to Form</a>
+      <a href="public/lab-7/index.html">Go Back to Form</a>
     `);
 });
 
