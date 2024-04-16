@@ -13,7 +13,7 @@ server.get('/do_a_random', (req, res) => {
 });
 
 // Setup static page serving for all the pages in "public"
-const publicServedFilesPath = path.join(__dirname, 'public');
+const publicServedFilesPath = path.join(__dirname, 'public','lab-7');
 server.use(express.static(publicServedFilesPath));
 
 // POST route handler for form submission
