@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Web Form</title>
+
+<!-- Content Security Policy (CSP) meta tags -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+<!-- Link to external CSS file -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Link to external JavaScript file -->
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h1>Lab 8 - Form Input Validation</h1>
+</header>
+
+<section>
+  <form id="signupForm" name="myForm">
+    <input type="text" id="firstName" name="firstName" placeholder="First Name">
+    <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+    <input type="email" id="email" name="email" placeholder="Email">
+    <input type="password" id="password" name="password" placeholder="Password">
+    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+    <button type="button" onclick="validateForm()">Submit</button>
+  </form>
+  <div id="submitMessage"></div>
+</section>
+
+</body>
+</html>

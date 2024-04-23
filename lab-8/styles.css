@@ -1,0 +1,82 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the header */
+header {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Apply styles to the signup form section */
+section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#signupForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#signupForm input,
+#signupForm button {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+#signupForm input[type="text"],
+#signupForm input[type="email"],
+#signupForm input[type="password"] {
+    width: 100%;
+}
+
+#signupForm button {
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#signupForm button:hover {
+    background-color: #e04e42;
+}
+
+#submitMessage {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.error {
+    color: red;
+}
+.success {
+    color: green;
+}
