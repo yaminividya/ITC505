@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights Out</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('BackgroundImage.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            overflow-y: auto;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        #board {
+            margin: 0 auto;
+            width: 250px;
+            height: 250px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 5px;
+        }
+
+        .cell {
+            width: 50px;
+            height: 50px;
+            background-color: #ffffff;
+            border: 1px solid #999;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cell.black {
+            background-color: purple;
+        }
+
+        .button-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button-container button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 800;
+            background-color: white;
+            color: purple;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: none;
+        }
+
+        .button-container button:hover {
+            background-color: orange;
+        }
+
+        .info {
+            color: white;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        footer {
+            text-align: center;
+            width: 100%;
+            color: white;
+            font-size: 18px;
+            padding: 20px 0;
+        }
+
+        footer h3 {
+            font-weight: 800;
+        }
+
+        .last_modified {
+            margin-top: 30px;
+            font-weight: 800;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Revenge of Lights Out</h1>
+        <div id="board"></div>
+        <div class="button-container" id="buttons">
+            <button id="new-game-btn">New Game</button>
+        </div>
+        <div class="info" id="info">
+            <span>Moves: <span id="moves">0</span></span>
+            <span id="timer">Timer: 0:00</span>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <h2><u>ADDENDUM</u></h2>
+            <div></div>
+            <h3>Process and Creative Choices:</h3>
+            <p><b>Lights Out Game:</b> The Lights Out game is represented by a grid of cells (5X5), each of which can be
+                toggled on or off by clicking. Users should toggle the cells to achieve the goal of turning off all the
+                lights.</p>
+            <p><b>New Game Button:</b> I added a button as "New Game" that initiates a new game session, resetting the
+                grid and allowing users to start fresh.</p>
+            <p><b>Moves Counter:</b> I added a counter as "Moves" which keeps track of the number of moves made by the
+                user.</p>
+            <p><b>Timer:</b> A timer that shows the amount of time that has passed since the game's beginning.</p>
+        </div>
+        <div>
+            <h3>Challenges Faced and Overcoming Them:</h3>
+            <p><b>Event Handling:</b> To guarantee correct operation, managing event listeners for cell clicks and the
+                "New Game" button required close attention. I made sure there was easy communication and responsiveness
+                by arranging the event handling logic in an efficient manner and using event delegation as necessary.
+            </p>
+            <p>One challenge was ensuring the proper functionality of the game while directly displaying it on the
+                initial screen without a start button. This was overcome by initializing the board directly upon
+                DOMContentLoaded event. Insights gained include the importance of clear and concise code structure for
+                maintaining and debugging.</p>
+        </div>
+        <div>
+            <h3>Insights Gained</h3>
+            <p><b>Problem-Solving Skills:</b> Robust problem-solving and a methodical approach to debugging and
+                troubleshooting were necessary to tackle issues like event handling and dynamic content updates.
+            </p>
+            <p><b>User-Centric Design:</b> A more captivating and joyful gaming experience resulted from giving user
+                experience factors, like a clear feedback mechanism (moves counter, timer), top priority.
+            </p>
+        </div>
+        </div>
+        <p class="last_modified">Last updated:
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const board = document.getElementById("board");
+            const newGameBtn = document.getElementById("new-game-btn");
+            const movesSpan = document.getElementById("moves");
+            const timerSpan = document.getElementById("timer");
+            const infoDiv = document.getElementById("info");
+
+            let grid = [];
+            const rows = 5;
+            const cols = 5;
+            let moves = 0;
+            let timerInterval;
+            let seconds = 0;
+            let minutes = 0;
+            let initialGrid = [];
+
+            initBoard(); // Initialize the board directly when the DOM content is loaded
+
+            // Initialize board
+            function initBoard() {
+                initialGrid = []; // Clear initial grid
+                for (let i = 0; i < rows; i++) {
+                    grid[i] = [];
+                    initialGrid[i] = [];
+                    for (let j = 0; j < cols; j++) {
+                        const cell = document.createElement("div");
+                        cell.classList.add("cell");
+                        cell.dataset.row = i;
+                        cell.dataset.col = j;
+                        cell.addEventListener("click", toggleCell);
+                        board.appendChild(cell);
+                        initialGrid[i][j] = false; // Initially all cells are white
+                    }
+                }
+                randomizeBoard();
+                startTimer();
+                newGameBtn.style.display = "inline-block"; // Display the button when game starts
+            }
+
+            // Toggle cell state
+            function toggleCell(event) {
+                const cell = event.target;
+                const row = parseInt(cell.dataset.row);
+                const col = parseInt(cell.dataset.col);
+                if (!cell.classList.contains("black")) {
+                    cell.classList.add("black");
+                    initialGrid[row][col] = true;
+                } else {
+                    cell.classList.remove("black");
+                    initialGrid[row][col] = false;
+                }
+                moves++;
+                movesSpan.textContent = moves;
+
+                if (checkWin()) {
+                    clearInterval(timerInterval);
+                    window.alert("You win!");
+                    newGame();
+                }
+
+            }
+
+            // Check if all cells are black
+            function checkWin() {
+                return document.querySelectorAll(".cell:not(.black)").length === 0;
+            }
+
+            // Randomize board
+            function randomizeBoard() {
+                const cells = document.querySelectorAll('.cell');
+                cells.forEach(cell => {
+                    const row = parseInt(cell.dataset.row);
+                    const col = parseInt(cell.dataset.col);
+                    if (Math.random() > 0.5) {
+                        cell.classList.add("black");
+                        initialGrid[row][col] = true;
+                    }
+                });
+            }
+
+            // New game
+            function newGame() {
+                const cells = document.querySelectorAll('.cell');
+                cells.forEach((cell, index) => {
+                    const row = parseInt(cell.dataset.row);
+                    const col = parseInt(cell.dataset.col);
+                    cell.classList.remove("black");
+                    initialGrid[row][col] = false;
+                });
+                randomizeBoard();
+                moves = 0;
+                movesSpan.textContent = moves;
+                clearInterval(timerInterval);
+                seconds = 0;
+                minutes = 0;
+                timerSpan.textContent = "Timer: 0:00";
+                startTimer();
+            }
+            newGameBtn.addEventListener("click", newGame);
+
+            // Timer
+            function startTimer() {
+                timerInterval = setInterval(function () {
+                    seconds++;
+                    if (seconds === 60) {
+                        seconds = 0;
+                        minutes++;
+                    }
+                    timerSpan.textContent = "Timer: " + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+
+</html>
