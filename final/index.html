@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lights Out</title>
     <style>
+        /* CSS from Code2 */
         body {
             font-family: Arial, sans-serif;
             background-image: url('BackgroundImage.png');
@@ -103,7 +103,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>Revenge of Lights Out</h1>
@@ -193,10 +192,10 @@
                         cell.dataset.col = j;
                         cell.addEventListener("click", toggleCell);
                         board.appendChild(cell);
-                        initialGrid[i][j] = false; // Initially all cells are white
+                        initialGrid[i][j] = Math.random() > 0.5; // Randomize initial cell state
                     }
                 }
-                randomizeBoard();
+                renderBoard();
                 startTimer();
                 newGameBtn.style.display = "inline-block"; // Display the button when game starts
             }
@@ -206,61 +205,66 @@
                 const cell = event.target;
                 const row = parseInt(cell.dataset.row);
                 const col = parseInt(cell.dataset.col);
-                if (!cell.classList.contains("black")) {
-                    cell.classList.add("black");
-                    initialGrid[row][col] = true;
-                } else {
-                    cell.classList.remove("black");
-                    initialGrid[row][col] = false;
-                }
+                initialGrid[row][col] = !initialGrid[row][col]; // Toggle cell state
+                toggleNeighbors(row, col); // Toggle neighboring cells
                 moves++;
                 movesSpan.textContent = moves;
 
                 if (checkWin()) {
                     clearInterval(timerInterval);
                     window.alert("You win!");
-                    newGame();
+                    // newGame();
+                    window.location.reload();
                 }
 
+                renderBoard(); // Update the board after cell click
             }
 
-            // Check if all cells are black
-            function checkWin() {
-                return document.querySelectorAll(".cell:not(.black)").length === 0;
-            }
-
-            // Randomize board
-            function randomizeBoard() {
-                const cells = document.querySelectorAll('.cell');
-                cells.forEach(cell => {
-                    const row = parseInt(cell.dataset.row);
-                    const col = parseInt(cell.dataset.col);
-                    if (Math.random() > 0.5) {
-                        cell.classList.add("black");
-                        initialGrid[row][col] = true;
+            // Toggle neighboring cells
+            function toggleNeighbors(row, col) {
+                const dr = [-1, 0, 1, 0];
+                const dc = [0, 1, 0, -1];
+                for (let i = 0; i < 4; i++) {
+                    const newRow = row + dr[i];
+                    const newCol = col + dc[i];
+                    if (isValidCell(newRow, newCol)) {
+                        initialGrid[newRow][newCol] = !initialGrid[newRow][newCol];
                     }
-                });
+                }
+            }
+
+            // Check if cell coordinates are valid
+            function isValidCell(row, col) {
+                return row >= 0 && row < rows && col >= 0 && col < cols;
+            }
+
+            // Check if all cells are off
+            function checkWin() {
+                return initialGrid.every(row => row.every(cell => cell));
+                // return initialGrid.every(row => row.every(cell => cell));
+            }
+
+            // Render the board
+            function renderBoard() {
+                for (let i = 0; i < rows; i++) {
+                    for (let j = 0; j < cols; j++) {
+                        const cell = board.querySelector(`[data-row="${i}"][data-col="${j}"]`);
+                        cell.classList.toggle("black", initialGrid[i][j]);
+                    }
+                }
             }
 
             // New game
             function newGame() {
-                const cells = document.querySelectorAll('.cell');
-                cells.forEach((cell, index) => {
-                    const row = parseInt(cell.dataset.row);
-                    const col = parseInt(cell.dataset.col);
-                    cell.classList.remove("black");
-                    initialGrid[row][col] = false;
-                });
-                randomizeBoard();
                 moves = 0;
                 movesSpan.textContent = moves;
-                clearInterval(timerInterval);
-                seconds = 0;
-                minutes = 0;
-                timerSpan.textContent = "Timer: 0:00";
+                initialGrid = initialGrid.map(row => row.map(() => Math.random() > 0.5));
+                renderBoard(); // Update the board after starting a new game
                 startTimer();
             }
-            newGameBtn.addEventListener("click", newGame);
+            newGameBtn.addEventListener("click", function () {
+                window.location.reload(); // Reload the page on "New Game" button click
+            });
 
             // Timer
             function startTimer() {
@@ -276,5 +280,4 @@
         });
     </script>
 </body>
-
 </html>
